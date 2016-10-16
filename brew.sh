@@ -6,7 +6,7 @@
 brew update
 
 # Upgrade any already-installed formulae.
-brew upgrade --all
+brew upgrade
 
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
@@ -37,15 +37,15 @@ brew install wget --with-iri
 # Install RingoJS and Narwhal.
 # Note that the order in which these are installed is important;
 # see http://git.io/brew-narwhal-ringo.
-brew install ringojs
-brew install narwhal
+#brew install ringojs
+#brew install narwhal
 
 # Install more recent versions of some macOS tools.
 brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 brew install homebrew/dupes/screen
-brew install homebrew/php/php56 --with-gmp
+#brew install homebrew/php/php56 --with-gmp
 
 # Install font tools.
 brew tap bramstein/webfonttools
@@ -65,6 +65,7 @@ brew install fcrackzip
 brew install foremost
 brew install hashpump
 brew install hydra
+brew install htop
 brew install john
 brew install knock
 brew install netpbm
@@ -76,7 +77,7 @@ brew install tcpflow
 brew install tcpreplay
 brew install tcptrace
 brew install ucspi-tcp # `tcpserver` etc.
-brew install xpdf
+#brew install xpdf
 brew install xz
 
 # Install other useful binaries.
@@ -100,6 +101,7 @@ brew install tree
 brew install vbindiff
 brew install webkit2png
 brew install zopfli
+#brew install ffmpeg --with-libvpx
 
 # Remove outdated versions from the cellar.
 brew cleanup

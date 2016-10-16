@@ -3,6 +3,9 @@
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
+	# view log with short comment
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+
 	# View the current working tree status using the short format
 	s = status -s
 
@@ -16,7 +19,8 @@
 	p = !"git pull; git submodule foreach git pull origin master"
 
 	# Clone a repository including all submodules
-	c = clone --recursive
+	#c = clone --recursive
+	c = commit -am
 
 	# Commit all changes
 	ca = !git add -A && git commit -av
@@ -100,6 +104,14 @@
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
 
+[pager]
+	# insanely beautiful diffs ==> npm install -g diff-so-fancy
+	diff = diff-so-fancy | less --tabs=4 -RFX
+	show = diff-so-fancy | less --tabs=4 -RFX
+
+[interactive]
+	diffFilter = "diff-so-fancy"
+
 [color]
 
 	# Use colors in Git commands that are capable of colored output when
@@ -128,7 +140,7 @@
 [commit]
 
 	# https://help.github.com/articles/signing-commits-using-gpg/
-	gpgsign = true
+	gpgsign = false
 
 [diff]
 
