@@ -38,6 +38,10 @@ shopt -s cdspell;
 #	complete -o default -o nospace -F _git g;
 #fi;
 
+source /usr/local/etc/bash_completion.d/git-completion.bash
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+
+source ~/ssh/ssh-agent.sh
 
 # z beats cd most of the time.
 #   github.com/rupa/z
