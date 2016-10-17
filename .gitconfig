@@ -22,6 +22,9 @@
 	#c = clone --recursive
 	c = commit -am
 
+	# diff done before last pull
+	lc = !git log --pretty=oneline -n 20 --graph --abbrev-commit ORIG_HEAD.. --stat --no-merges
+
 	# Commit all changes
 	ca = !git add -A && git commit -av
 
@@ -64,6 +67,14 @@
 	# List contributors with number of commits
 	contributors = shortlog --summary --numbered
 
+	# git shortcut
+  	co = checkout
+  	ci = commit
+  	st = status
+  	br = branch
+
+  	undo = reset --soft HEAD^
+
 	# Merge GitHub pull request on top of the current branch or,
 	# if a branch name is specified, on top of the specified branch
 	mpr = "!f() { \
@@ -78,7 +89,7 @@
 			git branch -D pr/$1 && \
 			git commit --amend -m \"$(git log -1 --pretty=%B)\n\nCloses #$1.\"; \
 		fi \
-	}; f"
+g	}; f"
 
 [apply]
 
@@ -192,3 +203,14 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[pull]
+	rebase = true
