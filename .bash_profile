@@ -33,19 +33,19 @@ shopt -s cdspell;
 #	source /etc/bash_completion;
 #fi;
 
-# Enable tab completion for `g` by marking it as an alias for `git`
-#if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
-#	complete -o default -o nospace -F _git g;
-#fi;
-
 source /usr/local/etc/bash_completion.d/git-completion.bash
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 
-source ~/ssh/ssh-agent.sh
+# Enable tab completion for `g` by marking it as an alias for `git`
+if type _git &> /dev/null && [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+	complete -o default -o nospace -F _git g;
+fi;
 
 # z beats cd most of the time.
 #   github.com/rupa/z
 source ~/bin/z.sh
+
+source ~/ssh/ssh-agent.sh
 
 # Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
