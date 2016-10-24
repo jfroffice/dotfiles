@@ -18,6 +18,9 @@ alias gti="git"
 alias h="history"
 alias j="jobs"
 
+alias d="docker"
+alias d-c="docker-compose"
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -157,3 +160,6 @@ alias reload="exec $SHELL -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# Print weather forecast
+alias weather='ansiweather -l "Aix en Provence",FR -F'
