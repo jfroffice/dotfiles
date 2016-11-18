@@ -8,7 +8,7 @@ kill_branches(){
 	echo $branches_to_die | xargs -n 1 git branch -D
 }
 
-remote_branches_to_die=$(git branch --no-color --remote --merged origin/master | grep -v '\smaster$' | grep -v '\/master$' | grep -v "origin\/HEAD" | grep -v "origin\/master")
+remote_branches_to_die=$(git branch --no-color --remote --merged origin/master | grep -v '\smaster$' | grep -v '\/master$' | grep -v "origin\/HEAD" | grep -v "origin\/master" | grep -v "fork-")
 echo "Remote branches to be deleted:"
 echo "$remote_branches_to_die"
 
