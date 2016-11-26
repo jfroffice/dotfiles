@@ -12,13 +12,23 @@ alias -- -="cd -"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
-alias g="git"
-alias gti="git"
 alias h="history"
 alias j="jobs"
 
+# Docker
 alias d="docker"
-alias d-c="docker-compose"
+alias dc="docker-compose"
+
+# Git
+alias g="git"
+alias gti="git"
+alias gl='git lg'
+alias gcm='git commit -m'
+alias gc='git commit -am'
+alias gr='git reb 3'
+alias gs='git st'
+alias gu='git undo && git reset HEAD && git status'
+alias gd='git diff'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
