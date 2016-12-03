@@ -82,6 +82,9 @@ brew install zopfli
 # funny apps
 brew install ansiweather
 
+# disk usage analyzer
+brew install ncdu
+
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 #brew install aircrack-ng
 #brew install bfg
