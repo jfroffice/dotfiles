@@ -30,6 +30,8 @@ alias gr='git reb 3'
 alias gs='git st'
 alias gu='git undo && git reset HEAD && git status'
 alias gd='git diff'
+alias gca='git commit --amend'
+alias gpom='git push origin master'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
