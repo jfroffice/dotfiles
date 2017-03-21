@@ -55,6 +55,7 @@ brew install woff2
 
 # basic sys tools
 brew install htop
+brew install ngrep
 brew install nmap
 brew install ssh-copy-id
 
