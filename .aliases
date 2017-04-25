@@ -21,16 +21,19 @@ alias d="docker"
 alias dc="docker-compose"
 
 # Git
-alias g="git"
-alias gti="git"
+alias g='git'
+alias gti='git'
 alias gl='git lg'
 alias gcm='git commit -m'
 alias gc='git commit -am'
+alias gp="git push"
+alias gll='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 alias gr='git reb 3'
 alias gs='git st'
 alias gu='git undo && git reset HEAD && git status'
 alias gd='git diff'
 alias gca='git commit --amend'
+alias grc='git rebase --continue'
 alias gpom='git push origin master'
 
 # Detect which `ls` flavor is in use
