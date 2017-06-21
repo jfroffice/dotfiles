@@ -30,7 +30,7 @@
     ca = !git add -A && git commit -av
 
     # Switch to a branch, creating it if necessary
-    go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\" || git submodule update; }; f"
+    go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\" || git submodule update --force; }; f"
 
     # Show verbose output about tags, branches or remotes
     tags = tag -l
@@ -179,7 +179,7 @@ g   }; f"
     # Use the Git 1.x.x default to avoid errors on machines with old Git
     # installations. To use `simple` instead, add this to your `~/.extra` file:
     # `git config --global push.default simple`. See http://git.io/mMah-w.
-    default = matching
+    default = current
     # Make `git push` push relevant annotated tags when pushing branches out.
     followTags = true
 
