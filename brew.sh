@@ -86,6 +86,9 @@ brew install ansiweather
 # disk usage analyzer
 brew install ncdu
 
+# tig
+brew install tig
+
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 #brew install aircrack-ng
 #brew install bfg
