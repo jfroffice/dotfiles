@@ -215,3 +215,6 @@ g   }; f"
 
 [pull]
     rebase = true
+
+[rebase]
+   autostash = true
