@@ -19,6 +19,9 @@ alias bfg="java -jar ~/bin/bfg.jar"
 # Docker
 alias d="docker"
 alias dc="docker-compose"
+alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
+alias dockercleanago="docker ps --filter "status=exited" | grep 'weeks ago' | awk '{print $1}' | xargs docker rm"
+alias dockerstop="docker stop $(docker ps -a -q)"
 
 # Git
 alias g='git'
@@ -35,6 +38,7 @@ alias gu='git undo && git reset HEAD && git status'
 alias gd='git diff'
 alias gca='git commit --amend'
 alias grc='git rebase --continue'
+alias gsl='git log --name-status HEAD^..HEAD'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
