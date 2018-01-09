@@ -1,8 +1,11 @@
 [alias]
     fixup = "!f() { TARGET=$(qe "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
 
+    # View abbreviated SHA, description, and history graph of the latest 5 commits
+    l = log --pretty=oneline -n 5 --abbrev-commit
+
     # View abbreviated SHA, description, and history graph of the latest 20 commits
-    l = log --pretty=oneline -n 20 --graph --abbrev-commit
+    ll = log --pretty=oneline -n 20 --graph --abbrev-commit
 
     # view log with short comment
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
