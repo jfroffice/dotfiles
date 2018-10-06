@@ -19,9 +19,12 @@ alias bfg="java -jar ~/bin/bfg.jar"
 # Docker
 alias d="docker"
 alias dc="docker-compose"
-alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
-alias dockercleanago="docker ps --filter "status=exited" | grep 'weeks ago' | awk '{print $1}' | xargs docker rm"
-alias dockerstop="docker stop $(docker ps -a -q)"
+alias dcleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
+alias dcleanago="docker ps --filter "status=exited" | grep 'weeks ago' | awk '{print $1}' | xargs docker rm"
+dstat() { docker stats $(docker ps | awk '{if(NR>1) print $NF}'); }
+dstop() { docker stop $(docker ps -a -q) > /dev/null; }
+dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
+dnorestart() { docker update --restart=no $1; }
 
 # Git
 alias g='git'
@@ -40,6 +43,22 @@ alias gd='git diff'
 alias gca='git commit --amend'
 alias grc='git rebase --continue'
 alias gsl='git log --name-status HEAD^..HEAD'
+alias gpom='echo "> git pull origin master" && git pull origin master'
+alias gpf='echo "> git pull fork-origin master" && git pull fork-origin master'
+alias grm='git rebase master'
+alias gf='git fetch --all --tags'
+alias gb='g br'
+alias ggm='g go master && g pull fork-origin master'
+
+# Extra edition
+sb() {
+    echo "✔︎ source ~/.extra"
+    source ~/.extra
+}
+
+se() {
+    s ~/.extra
+}
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
