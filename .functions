@@ -235,6 +235,7 @@ function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
 
+# docker helper function
 function docker_cleanup() {
     docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
     docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
@@ -243,3 +244,20 @@ function docker_cleanup() {
 function docker_update_images() {
     docker images | awk '{print $1}' | xargs -L1 docker pull
 }
+
+# return process listening on port number
+function wlisten() {
+    lsof -nP -i4TCP:$1 | grep LISTEN
+}
+
+# alias for editing .extra file quickly
+function sb() {
+    echo "✔︎ source ~/.extra"
+    source ~/.extra
+}
+
+function se() {
+    s ~/.extra
+}
+
+
