@@ -245,6 +245,18 @@ function docker_update_images() {
     docker images | awk '{print $1}' | xargs -L1 docker pull
 }
 
+function dstop() {
+    docker stop $(docker ps -a -q) > /dev/null;
+}
+
+function dstat() {
+    docker stats $(docker ps | awk '{if(NR>1) print $NF}');
+}
+
+function dbash() {
+    docker exec -it $(docker ps -aqf "name=$1") bash;
+}
+
 # return process listening on port number
 function wlisten() {
     lsof -nP -i4TCP:$1 | grep LISTEN
