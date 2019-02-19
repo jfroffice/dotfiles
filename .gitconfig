@@ -10,6 +10,9 @@
     # view log with short comment
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 
+    # view log with short comment
+    lgg= log --date=short --pretty=tformat:'%C(blue bold)%h%Creset -%Cgreen%d%Creset %s %C(yellow)(%aN, %aE)%Creset %Cblue%ai%Creset'
+
     # View the current working tree status using the short format
     s = status -s
 
