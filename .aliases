@@ -22,6 +22,7 @@ alias dc="docker-compose"
 alias dcleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
 alias dcleanago="docker ps --filter "status=exited" | grep 'weeks ago' | awk '{print $1}' | xargs docker rm"
 dstat() { docker stats $(docker ps | awk '{if(NR>1) print $NF}'); }
+dstart() { docker start $1 > /dev/null; }
 dstop() { docker stop $(docker ps -a -q) > /dev/null; }
 dbash() { docker exec -it $(docker ps -aqf "name=$1") bash; }
 dnorestart() { docker update --restart=no $1; }
@@ -34,22 +35,28 @@ alias gll='git lg'
 alias glll='git lgg'
 alias gm='git commit -m'
 alias ga='git commit -am'
+alias gf='git fetch --all --tags'
 alias gfa='git fetch --all'
 alias gp='git push'
-alias gpl='git pull origin $(git rev-parse --abbrev-ref HEAD)'
+alias gpp='gp -f --no-verify'
+alias gup='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 alias gr='git reb 4'
-alias gs='git st'
+# alias gs='git st'
+alias gs='git status --ignore-submodules=dirty'
 alias gu='git undo && git reset HEAD && git status'
 alias gd='git diff'
 alias gca='git commit --amend'
 alias grc='git rebase --continue'
 alias gsl='git log --name-status HEAD^..HEAD'
-alias gpom='echo "> git pull origin master" && git pull origin master'
 alias gpf='echo "> git pull fork-origin master" && git pull fork-origin master'
 alias grm='git rebase master'
-alias gf='git fetch --all --tags'
 alias gb='g br'
+alias gadd='g add'
+alias gom='g go master'
+alias pp="g add . && gm 'pp'"
 alias ggm='g go master && g pull fork-origin master'
+alias gfm='echo "> git pull fork-origin master" && git pull fork-origin master'
+alias gpom='echo "> git pull origin master" && git pull origin master'
 
 # Extra edition
 sb() {
